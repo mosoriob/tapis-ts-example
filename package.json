@@ -1,0 +1,31 @@
+{
+  "name": "@tapis/tapis-typescript-example",
+  "version": "0.0.1",
+  "description": "Example project using @tapis/tapis-typescript to access tapis.io API",
+  "main": "index.js",
+  "scripts": {
+    "build": "rm -rf dist && tsc",
+    "tenants": "node ./dist/tenants.js",
+    "systems": "node ./dist/systems.js",
+    "files": "node ./dist/files.js",
+    "apps": "node ./dist/apps.js",
+    "create-app": "node ./dist/apps-create.js",
+    "jobs": "node ./dist/jobs.js",
+    "create-job": "node ./dist/jobs-create.js",
+    "streams": "node ./dist/streams.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@tapis/tapis-typescript": "0.0.15",
+    "@types/node-fetch": "^2.5.10",
+    "cross-fetch": "^3.1.4",
+    "dotenv": "^9.0.1",
+    "node-fetch": "^2.6.1"
+  },
+  "devDependencies": {
+    "@types/node": "^15.0.2",
+    "typescript": "^4.3.5"
+  }
+}
