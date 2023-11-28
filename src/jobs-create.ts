@@ -10,6 +10,14 @@ const requestSubmitJob: Jobs.ReqSubmitJob = {
   appVersion: process.env.TEST_APP_VERSION,
   execSystemId: process.env.TEST_SYSTEM_ID,
   parameterSet: {
+    schedulerOptions: [
+      {
+        name: "chargeProject",
+        description: "Project to charge",
+        include: true,
+        arg: "-A BCS23003",
+      },
+    ],
     appArgs: [
       {
         arg: "--image_file",

@@ -12,7 +12,7 @@ const appDef: Apps.ReqPostApp = {
   jobType: Apps.JobTypeEnum.Batch,
   runtime: Apps.RuntimeEnum.Singularity,
   runtimeOptions: [Apps.RuntimeOptionEnum.SingularityRun],
-  containerImage: "tapis/img-classify-sing",
+  containerImage: "docker://tapis/img-classify-sing:0.1",
   jobAttributes: {
     parameterSet: {
       appArgs: [
