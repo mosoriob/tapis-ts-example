@@ -15,7 +15,7 @@ const requestSubmitJob: Jobs.ReqSubmitJob = {
         name: "chargeProject",
         description: "Project to charge",
         include: true,
-        arg: "-A BCS23003",
+        arg: `-A ${process.env.TEST_PROJECT_ID}`,
       },
     ],
     appArgs: [

@@ -22,3 +22,15 @@ Once this project is built, you may run two sample clients:
 npm run tenants
 npm run systems
 ```
+
+You can create a new app with:
+
+```
+npm run create-app
+```
+
+You can create a new job with:
+
+```
+npm run create-job
+```
