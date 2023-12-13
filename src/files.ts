@@ -26,8 +26,8 @@ import { Files } from "@tapis/tapis-typescript";
       configuration
     );
     const listFilesRequest: Files.ListFilesRequest = {
-      systemId: process.env.TEST_SYSTEM_ID,
-      path: "/",
+      systemId: process.env.TEST_SYSTEM_S3_ID,
+      path: "/mint/",
     };
     const response: Files.FileListingResponse = await api.listFiles(
       listFilesRequest

@@ -12,6 +12,7 @@
     "create-app": "node ./dist/apps-create.js",
     "jobs": "node ./dist/jobs.js",
     "create-job": "node ./dist/jobs-create.js",
+    "create-system-s3": "node ./dist/system-s3-create.js",
     "streams": "node ./dist/streams.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
