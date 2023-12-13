@@ -1,0 +1,48 @@
+{
+    "id": "jupyter-lab-hpc",
+    "version":  "0.72",
+    "description": "Run an interactive Jupyter Lab session on an HPC compute node. For the LLama Index Environment",
+    "owner": "${apiUserId}",
+    "enabled": true,
+    "runtime": "SINGULARITY",
+    "runtimeVersion": null,
+    "runtimeOptions": [
+        "SINGULARITY_RUN"
+    ],
+    "containerImage": "docker://taccaci/jupyter-lab-hpc:1.0.1",
+    "jobType": "BATCH",
+    "maxJobs": -1,
+    "maxJobsPerUser": -1,
+    "strictFileInputs": true,
+    "jobAttributes":  {
+        "execSystemExecDir": "${JobWorkingDir}/jobs/${JobUUID}",
+        "execSystemInputDir": "${JobWorkingDir}/jobs/${JobUUID}/input",
+        "execSystemOutputDir": "${JobWorkingDir}/jobs/${JobUUID}/output",
+        "maxMinutes": 100,
+        "parameterSet": {
+            "containerArgs": [
+                {
+                    "name": "mount",
+                    "description": "share mount",
+                    "inputMode": "FIXED",
+                    "arg": "--bind /share"
+                }
+            ],
+            "envVariables": [
+                {"key": "email"}
+            ]
+        }
+     
+    },
+    "tags": [
+        "portalName: ALL"
+    ],
+    "notes": {
+        "label": "Jupyter Lab HPC (Frontera)",
+        "helpUrl": "https://jupyterlab.readthedocs.io/en/stable/",
+        "hideNodeCountAndCoresPerNode": false,
+        "isInteractive": true,
+        "icon": "jupyter",
+        "category": "Data Processing"
+    }
+}
