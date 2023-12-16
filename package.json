@@ -14,6 +14,8 @@
     "create-job": "node ./dist/jobs-create.js",
     "stop-jobs": "node ./dist/jobs-stop.js",
     "create-system-s3": "node ./dist/system-s3-create.js",
+    "create-system-linux": "node ./dist/system-linux-create.js",
+    "delete-system": "node ./dist/system-delete.js",
     "delete-apps": "node ./dist/apps-delete.js",
     "streams": "node ./dist/streams.js",
     "test": "echo \"Error: no test specified\" && exit 1"

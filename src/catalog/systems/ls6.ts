@@ -1,0 +1,51 @@
+import { Systems } from "@tapis/tapis-typescript";
+
+export const ls6System = (username: string) => {
+  return {
+    id: "ls6.mosorio",
+    description: "System for running jobs on the LS6 cluster",
+    systemType: "LINUX",
+    host: "ls6.tacc.utexas.edu",
+    defaultAuthnMethod: "PASSWORD",
+    effectiveUserId: "${apiUserId}",
+    port: 22,
+    rootDir: "/",
+    canExec: true,
+    jobRuntimes: [{ runtimeType: "SINGULARITY" }],
+    jobWorkingDir: "HOST_EVAL($WORK2)",
+    canRunBatch: true,
+    batchScheduler: "SLURM",
+    batchSchedulerProfile: "tacc",
+    batchDefaultLogicalQueue: "development",
+    batchLogicalQueues: [
+      {
+        name: "gpu-a100",
+        hpcQueueName: "gpu-a100",
+        maxJobs: -1,
+        maxJobsPerUser: 40,
+        minNodeCount: 1,
+        maxNodeCount: 16,
+        minCoresPerNode: 1,
+        maxCoresPerNode: 128,
+        minMemoryMB: 1,
+        maxMemoryMB: 256000,
+        minMinutes: 1,
+        maxMinutes: 2880,
+      },
+      {
+        name: "development",
+        hpcQueueName: "development",
+        maxJobs: 50,
+        maxJobsPerUser: 10,
+        minNodeCount: 1,
+        maxNodeCount: 16,
+        minCoresPerNode: 1,
+        maxCoresPerNode: 68,
+        minMemoryMB: 1,
+        maxMemoryMB: 16384,
+        minMinutes: 1,
+        maxMinutes: 120,
+      },
+    ],
+  } as Systems.ReqCreateSystem;
+};
