@@ -1,15 +1,16 @@
 import { Apps } from "@tapis/tapis-typescript";
 
 const llamaNotebookApp: Apps.ReqPostApp = {
-  id: "jupyter-lab-hpc-mosorio",
-  version: "0.7.5",
+  id: "jupyter-lab-hpc-llm",
+  version: "0.8.4",
   description:
     "Run an interactive Jupyter Lab session on an HPC compute node. For the LLama Index Environment",
   owner: "${apiUserId}",
   enabled: true,
   runtime: Apps.RuntimeEnum.Singularity,
   runtimeOptions: [Apps.RuntimeOptionEnum.SingularityRun],
-  containerImage: "docker://wmobleytacc/tap_jupyter:repo",
+  containerImage:
+    "docker://ghcr.io/in-for-disaster-analytics/tap_llmrepository-docker:sha-3c1bbe8",
   jobType: Apps.JobTypeEnum.Batch,
   maxJobs: -1,
   maxJobsPerUser: -1,
@@ -27,7 +28,14 @@ const llamaNotebookApp: Apps.ReqPostApp = {
           inputMode: Apps.ArgInputModeEnum.Fixed,
           arg: "--bind /share",
         },
+        {
+          name: "NVIDIA Flag",
+          description: "Flag to enable NVIDIA cuda",
+          inputMode: Apps.ArgInputModeEnum.Fixed,
+          arg: "--nv",
+        },
       ],
+
       envVariables: [
         {
           key: "email",
