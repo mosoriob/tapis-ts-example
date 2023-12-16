@@ -2,7 +2,7 @@ import { Apps } from "@tapis/tapis-typescript";
 
 const llamaNotebookApp: Apps.ReqPostApp = {
   id: "jupyter-lab-hpc-llm",
-  version: "0.8.4",
+  version: "0.9.0",
   description:
     "Run an interactive Jupyter Lab session on an HPC compute node. For the LLama Index Environment",
   owner: "${apiUserId}",
@@ -19,6 +19,7 @@ const llamaNotebookApp: Apps.ReqPostApp = {
     execSystemExecDir: "${JobWorkingDir}/jobs/${JobUUID}",
     execSystemInputDir: "${JobWorkingDir}/jobs/${JobUUID}/input",
     execSystemOutputDir: "${JobWorkingDir}/jobs/${JobUUID}/output",
+    execSystemLogicalQueue: "gpu-a100-small",
     maxMinutes: 100,
     parameterSet: {
       containerArgs: [

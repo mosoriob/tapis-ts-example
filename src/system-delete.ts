@@ -33,7 +33,15 @@ import { Systems } from "@tapis/tapis-typescript";
 
     // Print the result
     const systems: Array<Systems.TapisSystem> = systemsResponse.result;
-    console.log(systems);
+    systems.forEach(async (system) => {
+      //delete system
+      const deleteSystemRequest: Systems.DeleteSystemRequest = {
+        systemId: system.id,
+      };
+      const deleteSystemResponse: Systems.RespBasic = await api.deleteSystem(
+        deleteSystemRequest
+      );
+    });
   } catch (error) {
     checkJsonError(error);
   }
