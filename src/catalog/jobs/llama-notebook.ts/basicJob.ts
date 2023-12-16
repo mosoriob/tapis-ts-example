@@ -5,6 +5,7 @@ const llamaJob: Jobs.ReqSubmitJob = {
   appId: llamaNotebookApp.id,
   appVersion: llamaNotebookApp.version,
   execSystemId: process.env.TEST_SYSTEM_ID,
+  execSystemLogicalQueue: "gpu-a100",
   parameterSet: {
     schedulerOptions: [
       {

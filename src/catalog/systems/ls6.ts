@@ -1,6 +1,8 @@
-export const ls6System = (username) => {
+import { Systems } from "@tapis/tapis-typescript";
+
+export const ls6System = (username: string) => {
   return {
-    id: "ls6." + username,
+    id: "ls6.mosorio",
     description: "System for running jobs on the LS6 cluster",
     systemType: "LINUX",
     host: "ls6.tacc.utexas.edu",
@@ -14,7 +16,7 @@ export const ls6System = (username) => {
     canRunBatch: true,
     batchScheduler: "SLURM",
     batchSchedulerProfile: "tacc",
-    batchDefaultLogicalQueue: "tapisNormal",
+    batchDefaultLogicalQueue: "development",
     batchLogicalQueues: [
       {
         name: "gpu-a100",
@@ -45,5 +47,5 @@ export const ls6System = (username) => {
         maxMinutes: 120,
       },
     ],
-  };
+  } as Systems.ReqCreateSystem;
 };
